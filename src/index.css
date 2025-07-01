@@ -34,3 +34,18 @@
 @keyframes rotate-gradient {
   to { background-position: 200% 200%; }
 }
+/* Navbar transitions */
+header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+/* Active state for desktop nav */
+nav .active {
+  background-color: #4f46e5;
+  color: white;
+}
+
+/* Mobile menu transitions */
+.mobile-menu {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}

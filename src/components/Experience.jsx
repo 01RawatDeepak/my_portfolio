@@ -1,6 +1,4 @@
-// src/components/Experience.jsx
 import React from 'react';
-// src/components/Experience.jsx
 import { motion } from 'framer-motion';
 
 const experiences = [
@@ -10,7 +8,7 @@ const experiences = [
     period: "2021 - Present",
     description: "Leading the frontend team in building responsive web applications.",
     skills: ["React", "TypeScript", "Redux"],
-    logo: "🏢"
+    logo: "🏢",
   },
   {
     company: "Digital Solutions",
@@ -18,7 +16,7 @@ const experiences = [
     period: "2018 - 2021",
     description: "Designed and implemented user interfaces for various clients.",
     skills: ["Figma", "Angular", "SCSS"],
-    logo: "🖥️"
+    logo: "🖥️",
   },
   {
     company: "StartUp Inc",
@@ -26,8 +24,8 @@ const experiences = [
     period: "2016 - 2018",
     description: "Assisted in developing and maintaining web applications.",
     skills: ["JavaScript", "jQuery", "Bootstrap"],
-    logo: "🚀"
-  }
+    logo: "🚀",
+  },
 ];
 
 const Experience = () => {
@@ -49,56 +47,58 @@ const Experience = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-indigo-200 dark:bg-indigo-900/50 hidden md:block"></div>
-          
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`mb-12 relative ${index !== experiences.length - 1 ? 'pb-12' : ''}`}
-            >
-              <div className="flex flex-col md:flex-row gap-6 items-start">
-                {/* Timeline dot */}
-                <div className="hidden md:flex absolute left-0 w-16 h-16 items-center justify-center">
-                  <div className="w-4 h-4 bg-indigo-600 rounded-full border-4 border-white dark:border-gray-800 z-10"></div>
+        <div className="relative max-w-5xl mx-auto">
+          {/* Timeline vertical line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-200 dark:bg-indigo-900/40 hidden md:block" />
+
+          {experiences.map((exp, index) => {
+            const isLeft = index % 2 === 0;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`relative mb-12 flex flex-col md:flex-row ${
+                  isLeft ? 'md:justify-start' : 'md:justify-end'
+                }`}
+              >
+                {/* Connector dot */}
+                <div className="hidden md:flex absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="w-4 h-4 bg-indigo-600 border-4 border-white dark:border-gray-800 rounded-full"></div>
                 </div>
 
-                {/* Company logo */}
-                <div className="md:absolute left-0 w-16 h-16 flex items-center justify-center bg-white dark:bg-gray-700 rounded-full shadow-md border border-gray-200 dark:border-gray-600">
-                  <span className="text-2xl">{exp.logo}</span>
-                </div>
-
-                {/* Content */}
-                <div className="md:ml-24 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 w-full">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4">
+                <div
+                  className={`w-full md:w-1/2 p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md ${
+                    isLeft ? 'md:mr-auto' : 'md:ml-auto'
+                  }`}
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-2xl">{exp.logo}</div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.company}</h3>
-                      <p className="text-indigo-600 dark:text-indigo-400">{exp.period}</p>
+                      <p className="text-indigo-600 dark:text-indigo-400 text-sm">{exp.period}</p>
                     </div>
-                    <span className="px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded-full text-sm font-medium">
-                      {exp.role}
-                    </span>
                   </div>
+                  <span className="inline-block mb-3 px-3 py-1 text-sm bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded-full font-medium">
+                    {exp.role}
+                  </span>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-gray-800 dark:text-gray-200"
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full text-gray-800 dark:text-white"
                       >
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

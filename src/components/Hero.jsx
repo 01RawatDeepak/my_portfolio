@@ -1,12 +1,15 @@
 // src/components/Hero.jsx
-import React from 'react';
+import React from "react";
 // src/components/Hero.jsx
-import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
-
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import heroImg from '../assets/hero_img.jpg';
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <section
+      id="home"
+      className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -16,11 +19,22 @@ const Hero = () => {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-500">
-              Hello. I'm <span className="text-indigo-600 dark:text-indigo-400">John Doe</span>.
+              Hello. I'm{" "}
+              <span className="text-indigo-600 dark:text-indigo-400">
+                Deepak Singh  Rawat
+              </span>
+              .
             </h1>
             <h2 className="text-2xl md:text-3xl mt-4 text-gray-600 dark:text-gray-300">
-              A <span className="font-semibold text-gray-800 dark:text-white">Software Developer</span><br />
-              Specializing in <span className="font-semibold text-gray-800 dark:text-white">React & Node.js</span>
+              A{" "}
+              <span className="font-semibold text-gray-800 dark:text-white">
+                Software Developer
+              </span>
+              <br />
+              Specializing in{" "}
+              <span className="font-semibold text-gray-800 dark:text-white">
+                React & Node.js
+              </span>
             </h2>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
@@ -46,8 +60,10 @@ const Hero = () => {
               {/* Developer illustration or photo */}
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-400 to-purple-500">
                 <div className="text-center p-8">
-                  <div className="text-8xl mb-4">👨‍💻</div>
-                  <h3 className="text-xl font-bold text-white">Full Stack Developer</h3>
+                  <img src={heroImg} alt="Hero" />
+                  <h3 className="text-xl font-bold text-white">
+                    Full Stack Developer
+                  </h3>
                 </div>
               </div>
             </div>
