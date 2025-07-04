@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Lottie from 'lottie-react';
-import contactAnimation from '../assets/Animation - 1751380939957.json';
+import contactAnimation from '../assets/animation/Animation - 1751380939957.json';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });

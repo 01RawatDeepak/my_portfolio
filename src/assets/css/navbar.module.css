@@ -1,0 +1,14 @@
+.custom_nav {
+  background: white;
+  height: 57px;
+  border-radius: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+.dark .custom_nav {
+  background: #1f2937; /* Tailwind's dark:bg-gray-800 */
+}
